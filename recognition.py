@@ -115,3 +115,11 @@ if yhat > 0.5:
     print(f'Image has no signal')
 else:
     print(f'Image has signal')
+
+#Saving model 
+#model.save(os.path.join('models','imageclassifier.h5'))
+
+#How to load and use the saved model
+from keras.models import load_model
+new_model = load_model(os.path.join('models','imageclassifier.h5'))
+yhat2 = new_model.predict(np.expand_dims(resize/255, 0))
